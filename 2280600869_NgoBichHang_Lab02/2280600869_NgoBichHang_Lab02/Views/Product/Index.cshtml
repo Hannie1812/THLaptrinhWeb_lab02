@@ -1,0 +1,33 @@
+﻿@model IEnumerable<_2280600869_NgoBichHang_Lab02.Models.Product>
+<h2>Danh sách sản phẩm</h2>
+<table class="table">
+<thead>
+<tr>
+    <th>@Html.DisplayNameFor(model => model.Id)</th>
+    <th>@Html.DisplayNameFor(model => model.Price)</th>
+    <th>@Html.DisplayNameFor(model => model.Description)</th>
+    <th>@Html.DisplayNameFor(model => model.CategoryId)</th>
+    <th>@Html.DisplayNameFor(model => model.ImageUrl)</th>
+    <th></th>
+</tr>
+</thead>
+<tbody>
+@foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Description</td>
+                <td>@product.CategoryId</td>
+                <td>
+                    <img src="@product.ImageUrl" alt="Product Image" />
+                </td>
+                <td>
+                        <a asp-action="Display" asp-route-id="@product.Id">Xem</a>
+                        <a asp-action="Update" asp-route-id="@product.Id">Sửa</a> |
+                        <a asp-action="Delete" asp-route-id="@product.Id">Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
